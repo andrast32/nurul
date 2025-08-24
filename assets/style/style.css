@@ -1,0 +1,57 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #fdf6f0;
+}
+/* Navbar */
+.navbar {
+    background-color: #4e342e !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+                height: 50px;
+                border-radius: 50%;
+            }
+            .nav-link {
+                color: #fdfdfd !important;
+                font-weight: 500;
+            }
+            .nav-link:hover {
+                color: #6f4e37 !important;
+            }
+
+.navbar-brand span {
+    color: #f9e4c8;
+}
+/* Hero */
+#hero {
+    background: linear-gradient(rgba(78, 52, 46, 0.85), rgba(78, 52, 46, 0.85)),
+        url("https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1600&q=80")
+            center/cover no-repeat;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+}
+/* Animated Text */
+.animated-text span {
+    opacity: 0;
+    display: inline-block;
+    transition: opacity 0.3s ease-in;
+}
+/* Carousel */
+.carousel-item img {
+    max-height: 400px;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 1.8rem;
+    }
+    #hero p {
+        font-size: 1rem;
+    }
+}
