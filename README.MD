@@ -22,4 +22,5 @@ Fitur utama meliputi:
         cd ulang-tahun-cinta
     ```
 2. **Akses Website di chrome**
+    👇👇👇
     https://andrast32.github.io/nurul/
