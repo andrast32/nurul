@@ -73,24 +73,25 @@
             <div class="container text-center" data-aos="fade-up">
                 <h2 class="fw-bold mb-4">Surat Cinta Untukmu Nurul Maryam 💌</h2>
                 <p class="animated-text fs-5">
-                    Sayangku, 
-                    <br><br>
+                    Sayangku.
+                    <br>
                     Aku ingin kau tahu, bahwa setiap detik bersamamu adalah
-                    anugerah yang tak tergantikan. Hadirmu adalah jawaban atas
+                    anugerah yang tak tergantikan. Hadirmu adalah jawaban atas 
                     doa-doa panjangku, dan senyummu adalah alasan mengapa aku
                     terus belajar tentang arti mencintai tanpa syarat.
-                    <br><br>
+                    <br>
                     Di ulang tahunmu ini, aku berdoa semoga hidupmu selalu
                     dihiasi warna kebahagiaan, semoga setiap mimpimu menemukan
                     jalannya untuk menjadi nyata, dan semoga langkahmu selalu
                     ringan karena kau tahu aku akan selalu berada di sisimu (walau hanya virtual hehe).
-                    <br><br>
+                    <br>
                     Cinta itu bukan hanya tentang hari-hari yang indah, tetapi
                     juga tentang keberanian untuk bersama dalam segala keadaan.
                     Dan aku ingin kau tahu, bahwa aku akan memilihmu kemarin, hari
                     ini, esok, dan selamanya.
                     <br><br>
-                    Selamat ulang tahun, sayangku. Terima kasih telah
+                    Selamat ulang tahun, sayangku.
+                    <br> Terima kasih telah
                     menjadi alasan mengapa aku percaya bahwa cinta sejati itu
                     nyata. ❤️
                 </p>
@@ -136,48 +137,28 @@
         <section id="kenangan" class="py-5 bg-light">
             <div class="container" data-aos="fade-up">
                 <h2 class="fw-bold text-center mb-4">Jejak Langkah 📸</h2>
-                <div
-                    id="carouselKenangan"
-                    class="carousel slide"
-                    data-bs-ride="carousel"
-                >
+                <div id="carouselKenangan" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img
-                                src="assets/images/kenangan1.jpg"
-                                class="d-block w-100 rounded"
-                                alt="Kenangan 1"
-                            />
+                            <img src="assets/img/1.jpg" class="d-block rounded" alt="Kenangan 1"/>
                         </div>
                         <div class="carousel-item">
-                            <img
-                                src="assets/images/kenangan2.jpg"
-                                class="d-block w-100 rounded"
-                                alt="Kenangan 2"
-                            />
+                            <img src="assets/img/2.jpg" class="d-block rounded" alt="Kenangan 2"/>
                         </div>
                         <div class="carousel-item">
-                            <img
-                                src="assets/images/kenangan3.jpg"
-                                class="d-block w-100 rounded"
-                                alt="Kenangan 3"
-                            />
+                            <img src="assets/img/3.jpg" class="d-block rounded" alt="Kenangan 3"/>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/4.jpg" class="d-block rounded" alt="Kenangan 4"/>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/5.jpg" class="d-block rounded" alt="Kenangan 5"/>
                         </div>
                     </div>
-                    <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#carouselKenangan"
-                        data-bs-slide="prev"
-                    >
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselKenangan" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                     </button>
-                    <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#carouselKenangan"
-                        data-bs-slide="next"
-                    >
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselKenangan" data-bs-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </button>
                 </div>
@@ -202,18 +183,48 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
         <script>
             AOS.init();
 
             // Animasi teks perkata
             document.querySelectorAll(".animated-text").forEach((text) => {
-                const words = text.innerText.split(" ");
+                const parts = text.innerHTML.split(/(\s+|<br\s*\/?>)/g); // pecah kata, spasi, dan <br>
                 text.innerHTML = "";
-                words.forEach((word, i) => {
-                    const span = document.createElement("span");
-                    span.innerHTML = word + "&nbsp;"; // supaya spasi muncul
-                    text.appendChild(span);
+
+                parts.forEach((part) => {
+                    if (part.match(/<br\s*\/?>/)) {
+                        text.appendChild(document.createElement("br")); // langsung render <br>
+                    } else if (part.trim() === "") {
+                        // kalau spasi → langsung tambahkan text node biasa (tidak animasi)
+                        text.appendChild(document.createTextNode(" "));
+                    } else {
+                        const span = document.createElement("span");
+                        span.textContent = part;
+                        text.appendChild(span);
+                    }
                 });
+
+                // animasi ketika masuk layar
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                let delay = 0;
+                                text.querySelectorAll("span").forEach((span) => {
+                                    setTimeout(() => {
+                                        span.classList.add("show");
+                                    }, delay);
+                                    delay += 300; // jeda antar kata
+                                });
+                                observer.unobserve(text); // hanya sekali animasi
+                            }
+                        });
+                    },
+                    { threshold: 0.5 }
+                );
+
+                observer.observe(text);
             });
 
             const observer = new IntersectionObserver(

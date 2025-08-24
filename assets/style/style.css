@@ -55,6 +55,8 @@ footer {
 .carousel-item img {
     max-height: 400px;
     object-fit: cover;
+    border-radius: 10px;
+    margin-left: 40%;
 }
 
 /* Floating Button */
