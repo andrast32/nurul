@@ -5,7 +5,7 @@
 Sebuah aplikasi web romantis 1 page untuk merayakan ulang tahun pasangan.  
 Fitur utama meliputi:
 
--   🎶 Musik autoplay (Surat Cinta untuk Starla)
+-   🎶 Musik autoplay (Seventeen - Untuk Mencintaimu)
 -   🖼️ Slideshow foto kenangan
 -   ✨ Animasi teks perkata (seperti lirik lagu)
 -   🎨 Desain tema coklat kopi hangat
@@ -18,6 +18,10 @@ Fitur utama meliputi:
 
 1. **Clone repository**
     ```bash
-    git clone https://github.com/username/ulang-tahun-cinta.git
-    cd ulang-tahun-cinta
+        git clone https://github.com/username/ulang-tahun-cinta.git
+        cd ulang-tahun-cinta
+    ```
+2. **Akses Website**
+    ```bash
+        https://andrast32.github.io/nurul/
     ```
