@@ -21,7 +21,5 @@ Fitur utama meliputi:
         git clone https://github.com/username/ulang-tahun-cinta.git
         cd ulang-tahun-cinta
     ```
-2. **Akses Website**
-    ```bash
-        https://andrast32.github.io/nurul/
-    ```
+2. **Akses Website di chrome**
+    https://andrast32.github.io/nurul/
